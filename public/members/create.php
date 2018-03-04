@@ -8,6 +8,7 @@ $email = '';
 $name = '';
 $password = '';
 $query = '';
+$form_completed = false;
 
 if ($_POST) {
 	$name = $_POST['name'];
@@ -33,7 +34,8 @@ if ($_POST) {
 			$result = mysqli_query($db_connection, $query);
 			if ($result){
 				if (mysqli_affected_rows($db_connection) == 1){
-					// Success message here
+					// Success 
+					$form_completed = true;
 				} else {
 					echo "There was a problem adding this record to the database";
 				}
@@ -43,9 +45,7 @@ if ($_POST) {
 		echo "There was a problem with the database query";
 	}
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en-gb">
@@ -56,27 +56,31 @@ if ($_POST) {
 <body>
 	<section class="container">
 		<h1>Fintastic member database</h1>
-		<h2>Create new member</h2>
+		<?php if ($form_completed == true) {
+			echo '<h2>Thank you, member created</h2>';
+		} else {
+		?>
+			<h2>Create new member</h2>
 
-		<form action="create.php" method="post">
-		<div>
-			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" value="" /> 
-		</div>
-		<div>
-			<label for="email">Email:</label>
-			<input type="email" id="email" name="email" value="" /> 
-		</div>
-		<div>
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="password" /> 
-			<p id="validation"></p>
-		</div>
-		<div>
-			<button type="submit" id="submit">Create member</button>
-		</div>
-		</form>
-
+			<form action="create.php" method="post">
+			<div>
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name" value="" /> 
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" value="" /> 
+			</div>
+			<div>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" /> 
+				<p id="validation" class="validation"></p>
+			</div>
+			<div>
+				<button type="submit" id="submit">Create member</button>
+			</div>
+			</form>
+		<?php } ?>
 		<a href="../members.php">Show all members</a>
 	</section>
 <script type="text/javascript" src="../js/validation.js"></script>

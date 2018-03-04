@@ -45,16 +45,14 @@ if ($_POST) {
 	$result = mysqli_query($db_connection, $query);
 	if ($result){
 		if (mysqli_affected_rows($db_connection) == 1){
-			// Success message here
+			// Success
 			$form_completed = true;
 		} else {
 			echo "There was a problem adding this record to the database";
 		}
 	}
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en-gb">
@@ -72,27 +70,29 @@ if ($_POST) {
 			<h2>Edit data for <?php echo $row['name']; ?></h2>
 
 			<form action="edit.php" method="post">
-			<div>
-				<label for="name">Name:</label>
-				<input type="text" id="name" name="name" value="" /> 
-			</div>
-			<div>
-				<label for="email">Email:</label>
-				<input type="email" id="email" name="email" value="" /> 
-			</div>
-			<div>
-				<label for="password">Password:</label>
-				<input type="password" id="password" name="password" /> 
-			</div>
-			<input type="hidden" name="post_id" value="<?php echo $id; ?>" />
-			<div>
-				<button type="submit" id="submit">Update member</button>
-			</div>
+				<div>
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name" value="" /> 
+				</div>
+				<div>
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" value="" /> 
+				</div>
+				<div>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password" /> 
+					<p id="validation" class="validation"></p>
+				</div>
+				<input type="hidden" name="post_id" value="<?php echo $id; ?>" />
+				<div>
+					<button type="submit" id="submit">Update member</button>
+				</div>
 			</form>
 
 		<?php } ?>
-		<p><a href="../members.php">Show all members</a></p>
+		<a class="footer" href="../members.php">Show all members</a>
 	</section>
+	<script type="text/javascript" src="../js/validation.js"></script>
 
 </body>
 </html>

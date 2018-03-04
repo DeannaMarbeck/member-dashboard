@@ -28,11 +28,8 @@ if ($_GET) {
 	} else {
 		echo "There was a problem with the database query";
 	}
-
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en-gb">
@@ -45,9 +42,8 @@ if ($_GET) {
 		<h1>Fintastic member database</h1>
 		<h2>View member</h2>
 		<p><?php echo $display; ?></p>
-
 		<p><?php echo '<a href="edit.php?id=' . $id .'">Edit member</a>'; ?></p> 
-		<p><a href="../members.php">Show all members</a></p>
+		<a class="footer" href="../members.php">Show all members</a>
 	</section>
 
 </body>

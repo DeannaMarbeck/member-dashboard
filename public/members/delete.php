@@ -36,9 +36,7 @@ if ($_GET) {
 		echo "There was a problem with the database query";
 	}
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en-gb">
@@ -53,8 +51,7 @@ if ($_GET) {
 		<?php if ($delete_completed == true) {
 			echo '<h2>Member id ' . $id . ' deleted</h2>';
 		} ?>
-		<p><a href="../members.php">Show all members here</a></p>
+		<a href="../members.php">Show all members here</a>
 	</section>
-
 </body>
 </html>

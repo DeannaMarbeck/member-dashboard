@@ -19,9 +19,7 @@ function print_member($row) {
 	$display .= '<span class="red"><a href="/members/delete.php?id=' . $row["id"] . '">Delete member</a></span></p>';
 	echo $display;
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +46,7 @@ function print_member($row) {
 			echo "The database query didn't work";
 		}
 		?>
-		<a href="members/create.php">Create a new member</a>
+		<a class="footer" href="members/create.php">Create a new member</a>
 	</section>
 
 </body>

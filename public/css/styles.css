@@ -5,6 +5,8 @@
 	background: url("../images/divers.jpeg");
 	background-size: 100%;
 	color: white;
+	max-width: 800px;
+	margin: 0px auto;
 }
 
 h1 {
@@ -19,12 +21,13 @@ a {
 	color: white;
 }
 
-form {
-	display: block;
-}
-
 input {
 	margin: 10px;
+}
+
+label {
+	width: 80px;
+	display: inline-block;
 }
 
 button {
@@ -39,14 +42,18 @@ button {
 button:hover {
 	transform: scale(1.01);
 	opacity: .9;
-
 }
 
 .field {
 	padding-right: 20px;
+	min-width: 200px;
+	display: inline-block;
 }
 
 .red {
-	/*border: 2px solid red;*/
 	background-color: red;
+}
+
+.validation {
+	display: inline-block;
 }
